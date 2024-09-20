@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - NAV JEEVAN</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav Jeevan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="background-flowers"></section>
+    
+    <header>
+        <h1>Nav Jeevan</h1>
+        <nav>
+            <a href="#login" class="nav-link">Login</a>
+            <a href="#register" class="nav-link">Sign Up</a>
+            <a href="#products" class="nav-link">Products</a>
+        </nav>
+    </header>
+    
+    <main class="main">
+        <section id="login" class="form-section">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        <section id="register" class="form-section">
+            <h2>Sign Up</h2>
+            <form id="register-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                
+                <label for="seller-product">Product Name:</label>
+                <input type="text" id="seller-product" required>
+                
+                <label for="seller-type">Product Type:</label>
+                <input type="text" id="seller-type" required>
+                
+                <label for="seller-quantity">Product Quantity:</label>
+                <input type="number" id="seller-quantity" required min="1">
+                
+                <label for="city">City:</label>
+                <input type="text" id="city" required>
+                
+                <label for="state">State:</label>
+                <input type="text" id="state" required>
+                
+                <label for="pin-code">Pin Code:</label>
+                <input type="text" id="pin-code" required pattern="\d{6}">
+                
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+
+        <section id="search-section">
+            <h2>Search Products</h2>
+            <input type="text" id="search-input" placeholder="Search for products...">
+        </section>
+
+        <section id="products">
+            <h2>Available Products</h2>
+            <div id="product-list"></div>
+        </section>
+
+        <section id="payment-section" style="display: none;">
+            <h2>Payment</h2>
+            <form id="payment-form">
+                <label for="payment-name">Name:</label>
+                <input type="text" id="payment-name" required>
+                
+                <label for="payment-email">Email:</label>
+                <input type="email" id="payment-email" required>
+                
+                <label for="payment-method">Payment Method:</label>
+                <select id="payment-method">
+                    <option value="upi">UPI</option>
+                    <option value="credit-card">Credit Card</option>
+                </select>
+                
+                <div id="credit-card-info" style="display: none;">
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" required pattern="\d{16}" placeholder="1234 5678 9012 3456">
+                    
+                    <label for="card-name">Cardholder Name:</label>
+                    <input type="text" id="card-name" required>
+                    
+                    <label for="expiration-date">Expiration Date (MM/YY):</label>
+                    <input type="text" id="expiration-date" required placeholder="MM/YY" pattern="\d{2}/\d{2}">
+                    
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" required pattern="\d{3}" placeholder="123">
+                </div>
+
+                <label for="amount">Amount:</label>
+                <input type="text" id="amount" readonly>
+                
+                <button type="submit">Pay</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<section id="available-products">
+    <h2>Available Products</h2>
+    <div id="product-list"></div>
+</section>
+
+<section id="cart-section">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <p id="total-amount">Total: ₹0</p>
+    <button id="checkout-button" style="display: none;">Checkout</button>
+</section>
+<section id="available-products">
+    <h2>Available Products</h2>
+    <div id="product-list"></div>
+</section>
+<section id="payment-section" style="display: none;">
+    <h2>Payment</h2>
+    <form id="payment-form">
+        <label for="payment-name">Name:</label>
+        <input type="text" id="payment-name" required>
+
+        <label for="payment-email">Email:</label>
+        <input type="email" id="payment-email" required>
+
+        <label for="payment-method">Payment Method:</label>
+        <select id="payment-method">
+            <option value="upi">UPI</option>
+            <option value="credit-card">Credit Card</option>
+            <option value="cod">Cash on Delivery (COD)</option>
+        </select>
+
+        <div id="credit-card-info" style="display: none;">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" required pattern="\d{16}" placeholder="1234 5678 9012 3456">
+
+            <label for="card-name">Cardholder Name:</label>
+            <input type="text" id="card-name" required>
+
+            <label for="expiration-date">Expiration Date (MM/YY):</label>
+            <input type="text" id="expiration-date" required placeholder="MM/YY" pattern="\d{2}/\d{2}">
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" required pattern="\d{3}" placeholder="123">
+        </div>
+
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" readonly>
+
+        <button type="submit">Pay</button>
+    </form>
+</section>
+<section id="payment-section" style="display: none;">
+    <h2>Payment</h2>
+    <form id="payment-form">
+        <label for="payment-name">Name:</label>
+        <input type="text" id="payment-name" required>
+
+        <label for="payment-email">Email:</label>
+        <input type="email" id="payment-email" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" required></textarea>
+
+        <label for="delivery-option">Delivery Option:</label>
+        <select id="delivery-option">
+            <option value="fast">Fast Delivery (₹20)</option>
+            <option value="slow">Slow Delivery (Free)</option>
+        </select>
+
+        <label for="payment-method">Payment Method:</label>
+        <select id="payment-method">
+            <option value="upi">UPI</option>
+            <option value="credit-card">Credit Card</option>
+            <option value="cod">Cash on Delivery (COD)</option>
+        </select>
+
+        <div id="credit-card-info" style="display: none;">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" required pattern="\d{16}" placeholder="1234 5678 9012 3456">
+
+            <label for="card-name">Cardholder Name:</label>
+            <input type="text" id="card-name" required>
+
+            <label for="expiration-date">Expiration Date (MM/YY):</label>
+            <input type="text" id="expiration-date" required placeholder="MM/YY" pattern="\d{2}/\d{2}">
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" required pattern="\d{3}" placeholder="123">
+        </div>
+
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" readonly>
+
+        <button type="submit">Pay</button>
+    </form>
+</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav Jeevan App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Nav Jeevan</h1>
+        <div id="nav">
+            <button id="signInBtn" onclick="showSignInInterface()">Sign In</button>
+            <button id="signOutBtn" class="hidden" onclick="signOut()">Sign Out</button>
+        </div>
+
+        <div id="signInInterface" class="interface hidden">
+            <h2>Sign In</h2>
+            <button onclick="showSellerInterface()">Seller</button>
+            <button onclick="showUserInterface()">Buyer</button>
+        </div>
+
+        <div id="sellerInterface" class="interface hidden">
+            <h2>Seller Sign In/Up</h2>
+            <form id="sellerForm">
+                <label for="sellerName">Name:</label>
+                <input type="text" id="sellerName" required>
+                
+                <label for="sellerAddress">Address:</label>
+                <input type="text" id="sellerAddress" required>
+                
+                <label for="houseNumber">House Number:</label>
+                <input type="text" id="houseNumber" required>
+                
+                <label for="sellerPincode">Pincode:</label>
+                <input type="text" id="sellerPincode" required>
+                
+                <button type="submit">Sign Up / Log In</button>
+            </form>
+        </div>
+
+        <div id="userInterface" class="interface hidden">
+            <h2>Buyer Sign In/Up</h2>
+            <form id="buyerForm">
+                <label for="buyerName">Name:</label>
+                <input type="text" id="buyerName" required>
+                
+                <label for="buyerAddress">Address:</label>
+                <input type="text" id="buyerAddress" required>
+                
+                <label for="houseNumber">House Number:</label>
+                <input type="text" id="buyerHouseNumber" required>
+                
+                <label for="buyerPincode">Pincode:</label>
+                <input type="text" id="buyerPincode" required>
+                
+                <button type="submit">Sign Up / Log In</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<footer>
+    <p>Made by Aarush Sharma and Aakash S. Kumar</p>
+</footer>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
